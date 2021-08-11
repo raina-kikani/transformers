@@ -388,7 +388,7 @@ class RobertaSelfOutput(nn.Module):
 class RobertaAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.self = RobertaSelfAttention(config)
+        self.self = CellSelfAttention(config)
         self.output = RobertaSelfOutput(config)
         self.pruned_heads = set()
 
