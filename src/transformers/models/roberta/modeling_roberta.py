@@ -451,7 +451,7 @@ class RobertaSelfOutput(nn.Module):
 class RobertaAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.self = 
+        self.self = CellSelfAttention(config)
         SelfAttention(config) # modified from source code to exclude positional encoding 
         self.output = RobertaSelfOutput(config)
         self.pruned_heads = set()
