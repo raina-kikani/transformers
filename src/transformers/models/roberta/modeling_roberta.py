@@ -329,7 +329,7 @@ class RobertaSelfAttention(nn.Module):
 
     class CellSelfAttention(nn.Module):
     def __init__(self, config):
-        super().__init__()
+        super().__init__(config)
         if config.hidden_size % config.num_attention_heads != 0 and not hasattr(config, "embedding_size"):
             raise ValueError(
                 f"The hidden size ({config.hidden_size}) is not a multiple of the number of attention "
