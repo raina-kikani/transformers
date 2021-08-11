@@ -327,7 +327,7 @@ class RobertaSelfAttention(nn.Module):
             outputs = outputs + (past_key_value,)
         return outputs
 
-    class CellSelfAttention(nn.Module):
+    class CellSelfAttention(RobertaSelfAttention):
     def __init__(self, config):
         super().__init__(config)
         if config.hidden_size % config.num_attention_heads != 0 and not hasattr(config, "embedding_size"):
@@ -451,7 +451,8 @@ class RobertaSelfOutput(nn.Module):
 class RobertaAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.self = CellSelfAttention(config) # modified from source code to exclude positional encoding 
+        self.self = 
+        SelfAttention(config) # modified from source code to exclude positional encoding 
         self.output = RobertaSelfOutput(config)
         self.pruned_heads = set()
 
